@@ -23,7 +23,7 @@ console.log('budgetDay: ' + budgetDay + ' рублей');
 */
 
 // lesson03
-
+/*
 let money = +prompt('Ваш месячный доход?');
 console.log('Задание №2: Ваш месячный доход ' + money);
 console.log(typeof money);
@@ -70,15 +70,59 @@ console.log(typeof budgetDay);
 // budgetDay = prompt('Ваш уровень дохода?');
 
 if (budgetDay >= 1200) {
-  console.log('Ваш уровень дохода ' + budgetDay)
+  console.log('Ваш уровень дохода ' + budgetDay);
   alert('У вас высокий уровень дохода');
 } else if (budgetDay >= 600 && budgetDay < 1200) {
-  console.log('Ваш уровень дохода ' + budgetDay)
+  console.log('Ваш уровень дохода ' + budgetDay);
   alert('У вас средний уровень дохода');
 } else if (budgetDay < 600 && budgetDay >= 0) {
-  console.log('Ваш уровень дохода ' + budgetDay)
+  console.log('Ваш уровень дохода ' + budgetDay);
   alert('К сожалению у вас уровень дохода ниже среднего');
 } else {
-  console.log('Ваш уровень дохода ' + budgetDay)
+  console.log('Ваш уровень дохода ' + budgetDay);
   alert('Что-то пошло не так'); 
 }
+*/
+
+// lesson04
+let money = +prompt('Ваш месячный доход?');
+
+let expenses1 = prompt('Введите обязательную статью расходов №1?');
+console.log('Задание №5: Статья расходов №1 ' + expenses1);
+
+let amount1 = +prompt('Во сколько обойдется ' + '"' + expenses1 + '"' + '?');
+console.log(expenses1 + ' обойдется в ' + amount1);
+
+let expenses2 = prompt('Введите обязательную статью расходов №2?');
+console.log('Задание №5: Статья расходов №1 ' + expenses2);
+
+let amount2 = +prompt('Во сколько обойдется ' + '"' + expenses2 + '"' + '?');
+console.log(expenses2 + ' обойдется в ' + amount2);
+
+const getExpensesMonth = function() {
+  return amount1 + amount2;
+};
+console.log('Задание №1: Сумма всех обязательных расходов за месяц: ', getExpensesMonth());
+
+const getAccumulatedMonth = function() {
+  return money - (amount1 + amount2);
+};
+getAccumulatedMonth();
+console.log('Задание №2: Накопления за месяц (Доходы минус расходы): ', getAccumulatedMonth());
+
+let accumulatedMonth = getAccumulatedMonth()
+console.log(accumulatedMonth);
+console.log(getAccumulatedMonth());
+console.log('Задание №3: Переменная accumulatedMonth равна результату вызова функции getAccumulatedMonth :', accumulatedMonth);
+
+let mission = +prompt('Ваша цель');
+const getTargetMonth = function() {
+  return Math.ceil(mission/accumulatedMonth)
+}
+console.log('Задание №4: Цель будет достигнута через: ', getTargetMonth(), ' месяцев');
+
+let budgetDay = accumulatedMonth / 30;
+console.log('Задание №5: Ваш бюджет на день ', budgetDay);
+
+let addExpenses = prompt ('Перечислите возможные расходы за рассчитываемый период через запятую');
+console.log(addExpenses.slice(', '));
