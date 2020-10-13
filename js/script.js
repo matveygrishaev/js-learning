@@ -85,6 +85,7 @@ if (budgetDay >= 1200) {
 */
 
 // lesson04
+
 let money = +prompt('Ваш месячный доход?');
 
 let expenses1 = prompt('Введите обязательную статью расходов №1?');
@@ -125,4 +126,8 @@ let budgetDay = accumulatedMonth / 30;
 console.log('Задание №5: Ваш бюджет на день ', budgetDay);
 
 let addExpenses = prompt ('Перечислите возможные расходы за рассчитываемый период через запятую');
-console.log(addExpenses.slice(', '));
+console.log(addExpenses.split(', '));
+
+const showTypeOf = function(a) {
+  console.log(typeof a);
+}
