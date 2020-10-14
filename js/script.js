@@ -1,10 +1,15 @@
 'use strict'
 
 //lesson05 
+let money = +prompt('Ваш месячный доход?');g
 
-let money = 50000,
-    mission = 500000,
-    period = 3;
+let addExpenses = prompt ('Перечислите возможные расходы за рассчитываемый период через запятую');
+
+let deposit = confirm('Есть ли у вас депозит в банке');
+
+// let money = 50000,
+//     mission = 500000,
+//     period = 3;
 
 let showTypeOf = function(item) {
     console.log(typeof item);
@@ -15,22 +20,38 @@ let showTypeOf = function(item) {
 //     expenses2 = prompt('Введите обязательную статью расходов?'),
 //     expenses2Amount = +prompt('Во сколько это обойдется?');
 
-    // Расходы за месяц getExpensesMonth
+let expenses = [];
+
+// Расходы за месяц getExpensesMonth
 let getExpensesMonth = function() {
-    
-  // Переменная sum, которая суммирует расходы
+    // Переменная sum, которая суммирует расходы
     let sum = 0;
 
-    expenses1Amount + expenses2Amount
     // С помощью цикла будем задавать вопрос про расходы и складывать сумму расходов
-    for (let i = 0; i < 2, i++) {
-        sum += +prompt('Во сколько это обойдется?');
+    for (let i = 0; i < 4; i++) {
+        
+        // Способ №1:
+
+        /* 
+        if (i === 0) {
+            expenses1 = prompt('Введите обязательную статью расходов?');
+        } else if (i === 1) {
+            expenses2 = prompt('Введите обязательную статью расходов?');
+         } 
+        */
+
+        // Способ №2:
+        expenses[i] = prompt('Введите обязательную статью расходов?');
+
+        sum = sum + +prompt('Во сколько это обойдется?');
     }
-    console.log(sum);
+    console.log(expenses);
     return sum;
 };
 
 let expensesAmount = getExpensesMonth();
+
+console.log('Расходы за месяц: ' + expensesAmount);
 
     // Сбережения за месяц
 let getAccumulatedMonth = function() {
