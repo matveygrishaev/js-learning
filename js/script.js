@@ -1,15 +1,44 @@
 'use strict'
 
 //lesson05 
-let money = +prompt('Ваш месячный доход?');g
 
-let addExpenses = prompt ('Перечислите возможные расходы за рассчитываемый период через запятую');
+/* Функция проверяет на:
+!isNaN, восклицательный знак говорит, что если это число, возвращается true, если строка или что-то другое вернется false
+isFinite(): если число конечное, то true и если бесконечное, то false */
+let isNumber = function(n) {
+    return !isNaN(parseFloat(n) && isFinite(n))
+}
 
-let deposit = confirm('Есть ли у вас депозит в банке');
+let money,
+    income = 'Фриланс',
+    addExpenses = prompt ('Перечислите возможные расходы за рассчитываемый период через   запятую'),
+    deposit = confirm('Есть ли у вас депозит в банке'),
+    mission = 50000,
+    period = 3;
 
-// let money = 50000,
-//     mission = 500000,
-//     period = 3;
+let start = function() {
+    money = prompt('Ваш месячный доход?');
+
+    // Первый способ задать условия для while:
+    /*
+    while (isNaN(money) || money.trim() === '' || money === null) {
+        money = prompt('Ваш месячный доход?');
+    }
+    */
+    
+    /* !Второй способ задать условия для while:
+    while (isNaN(parseFloat(money))) {
+        money = prompt('Ваш месячный доход?');
+    }
+    */
+
+    // Третий способ задать условие для while:
+    while (!isNumber(money)) {
+        money = prompt('Ваш месячный доход?');
+    }
+};
+
+start();
 
 let showTypeOf = function(item) {
     console.log(typeof item);
